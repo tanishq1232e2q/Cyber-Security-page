@@ -1,0 +1,46 @@
+
+html{
+    font-size: 80%;
+}
+
+@media(max-width:1100px){
+    html{
+        font-size: 65%;
+    }
+}
+
+@media(max-width:986px){
+    .users .conta{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+    }
+    .hrs h1{
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+    .footer{
+        top: 183rem;
+        height: fit-content;
+        width: fit-content;
+    }
+    .page{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+    }
+}
+
+@media(max-width:500px){
+    html{
+        font-size: 40%;
+        margin: 0rem 3rem;
+    }
+    .bn{
+        left: -4rem;
+    }
+    .container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl{
+        width: 70%;
+    }
+}

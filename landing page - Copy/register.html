@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        .nav {
+            display:  flex;
+            flex-direction: column;
+        }
+
+        body {
+            background-image: url("/images/background-1201003_1920.jpg");
+        }
+
+
+
+        .nav img {
+            width: 4rem;
+        }
+
+        .login h1 {
+            text-align: center;
+        }
+
+        .login {
+            display: flex;
+            position: relative;
+            top: 4rem;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login div {
+            margin: 1rem 0rem;
+        }
+
+        .login div i {
+            position: relative;
+            top: 0.7rem;
+            margin-right: 1.3rem;
+        }
+
+        .login input {
+            width: 17rem;
+            height: 3rem;
+            border: 1px solid black;
+            border-radius: 11px;
+        }
+
+        .login {
+            background-image: url("/images/cloud-computing-gd137d77c8_1280.png");
+
+            width: 25rem;
+            height: 26rem;
+            border-radius: 14px;
+        }
+
+        .hero {
+            display: flex;
+            justify-content: center;
+        }
+
+
+
+        .chat {
+            position: relative;
+            top: -11rem;
+            display: inline;
+        }
+        html{
+            font-size: 90%;
+        }
+        #dad {
+            text-align: center;
+            position: relative;
+            top: 2rem;
+        }
+
+        .already {
+            color: red;
+            text-decoration: none;
+            font-size: 1.2rem;
+            margin: 1.3rem 0rem;
+        }
+
+        .login button {
+            display: block;
+            margin: auto;
+            width: 8rem;
+        }
+
+        .login button:hover {
+            background-color: violet;
+        }
+
+        @media(max-width:500px){
+            html{
+                font-size: 70%;
+            }
+            .chat img{
+                margin-top: 3rem;
+                width: 20%;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <header class="nav">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <img src="/images/clipart3019726.png" alt="">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-bg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/login.html">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/contact.html">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/register.html">Register</a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                    <form class="d-flex">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+
+    </header>
+
+    <h1 id="dad">Authorization and Authentication </h1>
+    <a href="/bio.html"></a>
+    <div class="hero">
+
+        <section class="login">
+            <div>
+                <h1>Register</h1>
+                <div>
+                    <i class="fa-solid fa-user fa-3x"></i><span><input type="text" id="username" name="username"
+                            placeholder="Enter your name"></span>
+
+                </div>
+                <div>
+                    <i class="fa-solid fa-envelope fa-3x"></i><span><input type="email" id="email" name="email"
+                            placeholder="Enter your email"></span>
+
+                </div>
+                <div>
+                    <i class="fa-solid fa-lock fa-3x"></i><span><input type="password" id="password" name="password"
+                            placeholder="Enter your password"></span>
+
+                </div>
+                <div><button type="submit" id="signup" value="submit">Submit</button></div>
+                <a href="/login.html" class="already">Already a user Login here___</a>
+            </div>
+        </section>
+    </div>
+    <div class="chat">
+        <img src="/images/chatbot-marketing.gif" alt="" srcset="">
+    </div>
+
+
+
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
+        import { getDatabase, set, ref, update } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-database.js";
+        import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyANF308FCQnrD9FV0dwVIEv3iT3nJJTxd0",
+            authDomain: "black-mamba-f068f.firebaseapp.com",
+            databaseURL: "https://black-mamba-f068f-default-rtdb.firebaseio.com",
+            projectId: "black-mamba-f068f",
+            storageBucket: "black-mamba-f068f.appspot.com",
+            messagingSenderId: "1027563599000",
+            appId: "1:1027563599000:web:fbac4e5f1a85dada480ced",
+            measurementId: "G-7W2J0M2CS0"
+        };
+
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        // const analytics = getAnalytics(app);
+        const auth = getAuth()
+
+        const database = getDatabase(app)
+
+
+        const signUp = document.getElementById("signup")
+        console.log(signUp);
+
+        // const provider = new GoogleAuthProvider(app);
+
+        signUp.addEventListener(("click"), () => {
+            var username = document.getElementById("username").value
+            var email = document.getElementById("email").value
+            var password = document.getElementById("password").value
+            console.log(password);
+
+
+            createUserWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    // Signed in 
+                    const user = userCredential.user;
+                    console.log(user.displayName);
+                    console.log(user.email);
+                    console.log(user.emailVerified);
+
+                    set(ref(database, "users/" + user.uid), {
+                        password: password,
+                        email: email
+                    })
+                    swal("Good", "Registration Completed", "success")
+                    // setTimeout(() => {
+
+                    //     window.location.href = "/index.html"
+                    // }, 2000);
+
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    alert(errorMessage)
+                    // ..
+                });
+
+
+
+
+        })
+
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                // User is signed in, see docs for a list of available properties
+                // https://firebase.google.com/docs/reference/js/firebase.User
+                
+                const uid = user.uid;
+
+                // ...
+            } else {
+                // User is signed out
+                // ...
+            }
+        });
+
+
+    </script>
+    
+    <script src="https://kit.fontawesome.com/39aab1f952.js" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
